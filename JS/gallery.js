@@ -94,7 +94,6 @@ galleryBox.addEventListener("click", function(event) {
     if (event.target.classList.contains("gallery-image")) {
         const source = event.target.dataset.source;
       basicLightbox.create(`<img src="${source}">`).show();
-      console.log(source);
     }
 });
 
