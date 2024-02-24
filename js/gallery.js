@@ -68,14 +68,14 @@ const galleryBox = document.querySelector(".gallery");
 const markap = images.map(
     ({preview, original, description
 })=> `<li class="gallery-item">
-  <a class="gallery-link" href=${original}>
+  <a class="gallery-link" href="${original}">
     <img
       class="gallery-image"
-      src=${preview}
-      data-source=${original}
-      alt=${description}
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
       width=360px
-      hight=200px
+      height=200px
     />
   </a>
 </li>
@@ -84,15 +84,15 @@ const markap = images.map(
 galleryBox.insertAdjacentHTML("beforeend", markap);
 
 const links = document.querySelectorAll(".gallery-link");
-links.forEach(link => {
+
+galleryBox.addEventListener("click", function (event) {
+  links.forEach(link => {
   link.addEventListener("click", event => {
     event.preventDefault();
   })
 });
-
-galleryBox.addEventListener("click", function(event) {
-    if (event.target.classList.contains("gallery-image")) {
-        const source = event.target.dataset.source;
-      basicLightbox.create(`<img src="${source}">`).show();
-    }
+  if (event.target.classList.contains("gallery-image")) {
+    const source = event.target.dataset.source;
+    basicLightbox.create(`<img src="${source}">`).show();
+  }
 });
