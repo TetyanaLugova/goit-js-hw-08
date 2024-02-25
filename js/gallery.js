@@ -83,14 +83,8 @@ const markap = images.map(
 
 galleryBox.insertAdjacentHTML("beforeend", markap);
 
-const links = document.querySelectorAll(".gallery-link");
-
 galleryBox.addEventListener("click", function (event) {
-  links.forEach(link => {
-  link.addEventListener("click", event => {
-    event.preventDefault();
-  })
-});
+  event.preventDefault();
   if (event.target.classList.contains("gallery-image")) {
     const source = event.target.dataset.source;
     basicLightbox.create(`<img src="${source}">`).show();
